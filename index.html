@@ -774,7 +774,6 @@ footer{text-align:center;padding:22px;color:var(--muted);font-size:12px;border-t
 .toolbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
 .hint{font-size:12px;color:var(--muted)}
 </style>
-
 <style id="login-css">
 #login-overlay{position:fixed;inset:0;z-index:99999;background:linear-gradient(135deg,#0C2523 0%,#17594F 55%,#2E7D6E 100%);display:flex;align-items:center;justify-content:center}
 .login-box{background:#fff;border-radius:18px;padding:44px 40px 36px;width:100%;max-width:400px;box-shadow:0 24px 64px rgba(0,0,0,.35);text-align:center;direction:rtl}
@@ -791,10 +790,8 @@ footer{text-align:center;padding:22px;color:var(--muted);font-size:12px;border-t
 .login-footer{font-size:11px;color:#9BB5B0;margin-top:20px;line-height:1.8}
 .shake{animation:shake .4s}
 @keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
-</style>
-</head>
+</style></head>
 <body>
-
 <div id="login-overlay">
   <div class="login-box" id="login-box">
     <div class="login-logo">🌿</div>
@@ -826,25 +823,18 @@ function doLogin(){
     document.getElementById('l-pass').value='';document.getElementById('l-pass').focus();
   }
 }
-try{
-  if(sessionStorage.getItem(SESSION_KEY)==='1'){
-    document.addEventListener('DOMContentLoaded',()=>{
-      const ov=document.getElementById('login-overlay');if(ov)ov.style.display='none';
-    });
-  }
-}catch(e){}
+try{if(sessionStorage.getItem(SESSION_KEY)==='1'){
+  document.addEventListener('DOMContentLoaded',()=>{const ov=document.getElementById('login-overlay');if(ov)ov.style.display='none';});
+}}catch(e){}
 document.addEventListener('DOMContentLoaded',()=>{
   const hdr=document.querySelector('.h-badge');
-  if(hdr){
-    const btn=document.createElement('button');
+  if(hdr){const btn=document.createElement('button');
     btn.textContent='تسجيل خروج';
     btn.style='background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;padding:5px 14px;border-radius:6px;font-size:12px;font-family:Tajawal,Arial,sans-serif;cursor:pointer;margin-top:6px;display:block;width:100%';
     btn.onclick=()=>{try{sessionStorage.removeItem(SESSION_KEY);}catch(e){}location.reload();};
-    hdr.appendChild(btn);
-  }
+    hdr.appendChild(btn);}
 });
 </script>
-
 <header>
   <div class="h-top">
     <div class="h-title">
@@ -947,14 +937,14 @@ document.addEventListener('DOMContentLoaded',()=>{
 <section class="tab" id="tab-dist">
   <div class="card">
     <h3>التحليل التفصيلي للمناطق الـ 26 — مركز وسط المدينة</h3>
-    <div class="sub">المنفَّذ محسوب آلياً من <b>جدول بيانات الحدائق المعتمد</b> (تجميع مساحات المرافق لكل منطقة)، والمطلوب وفق معادلة الدليل. يمكن التبديل لأرقام الدراسة من لوحة المؤشرات، وتغيير النطاق العمراني لأي منطقة لمحاكاة السيناريوهات. اضغط على رأس أي عمود للفرز.</div>
+    <div class="sub">جميع الأرقام مستخرجة من الدراسة الرسمية — تشمل المنفذ الحالي والمواقع المستقبلية (المرحلتان الأولى والثانية) والواحات وفق الدليل. يمكن تغيير النطاق العمراني لأي منطقة لمحاكاة السيناريوهات. اضغط على رأس أي عمود للفرز.</div>
     <div class="toolbar">
       <input type="text" id="distSearch" class="search" placeholder="🔍 ابحث عن منطقة..." style="min-width:240px">
       <span class="hint">الحالة: مكتفية ≥100% · متقدمة 50–99% · منخفضة 10–49% · حرجة أقل من 10% · صفرية 0%</span>
     </div>
     <div class="tbl-wrap"><table id="tblDist"></table></div>
     <div class="note">
-      <b>ملاحظات منهجية من الدراسة:</b> احتُسبت الحدائق العامة والمصغرة والملاعب والمحميات والميادين الحضرية ضمن المنفذ · لم تُحتسب المماشي ومسارات الدراجات (ضمن حرم الشوارع) ولا المزارع والملاعب الخاصة ولا ستادات هزاع والعين والقطارة · استُبعدت المنطقة الصناعية · الواحات محتسبة ضمن المنفذ في: المويجعي، الجاهلي، المعترض، وسط المدينة، هيلي، الجيمي، القطارة. <b>مصدر «جدول الحدائق المعتمد»</b> يشمل الحدائق العامة والمصغرة والملاعب فقط (627 مرفقاً)، لذا تكون قيمه أقل من أرقام الدراسة الشاملة للواحات والمحميات — استخدم مفتاح التبديل في لوحة المؤشرات لعرض السيناريوهين.
+      <b>ملاحظات منهجية من الدراسة:</b> احتُسبت الحدائق العامة والمصغرة والملاعب والمحميات والميادين الحضرية ضمن المنفذ · لم تُحتسب المماشي ومسارات الدراجات (ضمن حرم الشوارع) ولا المزارع والملاعب الخاصة ولا ستادات هزاع والعين والقطارة · استُبعدت المنطقة الصناعية · الواحات محتسبة ضمن المنفذ في: المويجعي، الجاهلي، المعترض، وسط المدينة، هيلي، الجيمي، القطارة. جميع الأرقام متوافقة مع الدراسة الرسمية لتوزيع المساحات المفتوحة في مركز وسط المدينة.
     </div>
   </div>
 </section>
@@ -1020,8 +1010,7 @@ function computeReq(area, deductPct, scopePct){
   return {net, req, s55: req*0.55, s25: req*0.25, s20: req*0.20};
 }
 DISTRICTS.forEach(d => { d.scope = 15; d.deduct = 20; });
-let EXEC_SOURCE = 'sheet'; // 'sheet' = جدول الحدائق المعتمد | 'study' = أرقام الدراسة
-const getExec = d => EXEC_SOURCE==='sheet' ? (d.execSheet||0) : d.exec;
+const getExec = d => d.exec;  // أرقام الدراسة الرسمية
 
 function distCalc(d){
   const c = computeReq(d.area, d.deduct, d.scope);
@@ -1076,14 +1065,7 @@ function renderDash(){
     if(c.cur>=100) ok++;
   });
   const below10 = zero + crit;
-  const srcLabel = EXEC_SOURCE==='sheet' ? 'جدول الحدائق المعتمد (627 مرفقاً)' : 'أرقام الدراسة (شاملة الواحات والمحميات)';
   document.getElementById('kpis').innerHTML = `
-    <div class="kpi" style="grid-column:1/-1;display:flex;align-items:center;gap:14px;flex-wrap:wrap">
-      <b style="color:var(--teal)">مصدر بيانات المنفَّذ:</b>
-      <button class="chip ${EXEC_SOURCE==='sheet'?'on':''}" onclick="setSource('sheet')">جدول الحدائق المعتمد</button>
-      <button class="chip ${EXEC_SOURCE==='study'?'on':''}" onclick="setSource('study')">أرقام الدراسة (مع الواحات)</button>
-      <span class="hint">المصدر الحالي: ${srcLabel}</span>
-    </div>`+`
     <div class="kpi"><div class="v">${(totReq/1e6).toFixed(1)} مليون م²</div><div class="l">إجمالي المساحات المطلوبة</div><div class="s">وفق معادلة الدليل — 26 منطقة</div></div>
     <div class="kpi gold"><div class="v">${(totExec/1e6).toFixed(1)} مليون م²</div><div class="l">إجمالي المنفَّذ حالياً</div><div class="s">اكتفاء إجمالي ${fmt1(100*totExec/totReq)}%</div></div>
     <div class="kpi green"><div class="v">${fmt1(100*totFut/totReq)}%</div><div class="l">الاكتفاء مع المواقع المستقبلية</div><div class="s">بعد المرحلتين الأولى والثانية</div></div>
@@ -1133,8 +1115,6 @@ function renderDash(){
       return `<tr><td>${i+1}</td><td><b>${x.d.name}</b></td><td class="num">${fmt(x.c.req)}</td><td class="num">${fmt(x.c.ex)}</td><td class="num" style="color:var(--red)">${fmt(x.c.req-x.c.ex)}</td><td class="num">${fmt1(x.c.cur)}%</td><td class="num">${fmt1(x.c.fut)}%</td><td><span class="badge ${cls}">${t}</span></td></tr>`;
     }).join('');
 }
-function setSource(v){EXEC_SOURCE=v;try{renderDash()}catch(e){};try{renderDist()}catch(e){};}
-window.setSource=setSource;
 function safeDash(){try{renderDash();}catch(e){console.error('dash',e);}}
 if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',()=>setTimeout(safeDash,80));}
 safeDash();
